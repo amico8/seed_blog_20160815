@@ -1,6 +1,4 @@
 <?php
-  echo 'routes.phpを通りました<br>';
-
   // １．GETパラメータを取得
   // explode関数：第二引数の文字列を、第一引数の文字列で分解し、配列で返す関数。
   $params = explode('/', $_GET['url']);
