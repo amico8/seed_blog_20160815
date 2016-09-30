@@ -26,5 +26,16 @@
       return $rtn;
     }
 
+    function show($id) {
+      $sql = sprintf('SELECT * FROM `blogs` WHERE `id` = %d',
+        mysqli_real_escape_string($this->dbconnect, $id)
+      );
+      $results = mysqli_query($this->dbconnect, $sql) or die(mysqli_error($this->dbconnect));
+
+      $result = mysqli_fetch_assoc($results);
+      return $result;
+
+    }
+
   }
 ?>

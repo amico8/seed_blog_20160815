@@ -10,6 +10,12 @@
     case 'index':
         $controller->index();
         break;
+    case 'show':
+        $controller->show($id);
+        break;
+    case 'add':
+        $controller->add();
+      break;
     default:
         break;
   }
@@ -21,6 +27,19 @@
       $viewOptions = $blog->index();
       $action = 'index';
 
+      require('views/layout/application.php');
+    }
+
+    function show($id) {
+      $blog = new Blog();
+      $viewOptions = $blog->show($id);
+      $action = 'show';
+
+      require('views/layout/application.php');
+    }
+
+    function add() {
+      $action = 'add';
       require('views/layout/application.php');
     }
   }
