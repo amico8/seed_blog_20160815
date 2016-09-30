@@ -11,6 +11,12 @@
     $id = $params[2];
   }
 
+  // POSTでデータが送られた場合
+  $post = array();
+  if (!empty($_POST)) {
+    $post = $_POST;
+  }
+
   // ３．コントローラの呼び出し
   require('controllers/'. $resouce .'_controller.php');
 ?>

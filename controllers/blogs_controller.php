@@ -16,6 +16,15 @@
     case 'add':
         $controller->add();
       break;
+    case 'create':
+        $controller->create($post);
+      break;
+    case 'edit':
+        $controller->edit($id);
+      break;
+    case 'update':
+        $controller->update($id, $post);
+      break;
     default:
         break;
   }
@@ -41,6 +50,28 @@
     function add() {
       $action = 'add';
       require('views/layout/application.php');
+    }
+
+    function create($post) {
+      $blog = new Blog();
+      $blog->create($post);
+
+      // indexへ遷移
+      header('Location: /seed_blog/blogs/index');
+      exit();
+    }
+
+    function edit($id) {
+      $blog = new Blog();
+      $viewOptions = $blog->edit($id);
+      $action = 'edit';
+
+      require('views/layout/application.php');
+    }
+
+    function update($id, $post) {
+      $blog = new Blog();
+      $blog->update($id, $post);
     }
   }
 ?>
